@@ -157,6 +157,8 @@ def make_prompt(lm, question_word=DECOY_Q, belief_word=DECOY_B):
 def run(args):
     torch.set_num_threads(min(4, torch.get_num_threads()))
     controller, challenge = load_controller(args.checkpoint)
+    if args.start_seed is None:
+        args.start_seed = 410000 if challenge == "b" else 310000
     repo = args.qimag.resolve()
     load, Lens, extend_lens, hs, replace, tap = get_qimag(repo)
     model_name = args.model
@@ -254,7 +256,7 @@ def main():
     p.add_argument("--model", default="Qwen/Qwen2.5-1.5B-Instruct")
     p.add_argument("--device", choices=("auto","cpu","cuda"), default="auto")
     p.add_argument("--cases", type=int, default=2)
-    p.add_argument("--start-seed", type=int, default=310000)
+    p.add_argument("--start-seed", type=int, default=None, help="default 310000 for A, 410000 for B")
     p.add_argument("--budget", type=int, default=4)
     p.add_argument("--out", type=Path, default=Path("results/qwen_bridge002b.json"))
     p.add_argument("--verbose", action="store_true")
