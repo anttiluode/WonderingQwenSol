@@ -113,6 +113,36 @@ interface uses ordinary language tokens—not a silent J-space intervention.
 If it works, it shows Qwen can help choose measurements, **not** that we
 installed a free-running internal mind.
 
+## Experiment 002A — first learned state gate
+
+Argon's "Python-out-of-the-loop" objection is now testable. A small GRU
+takes seven observable bits per step (probe identity and reading) and
+learns a persistent latent belief over the eight candidate worlds.
+The exact Bayesian posterior and the optimal action are used as
+**training labels only**, never as an input at evaluation.
+
+On 200 held-out-seed simulated worlds (4 follow-up probes), the
+trained recurrent controller got **81.0%** of full states correct.
+Resetting its own hidden state after every reading dropped it to
+**29.5%**; a separately trained memoryless model reached **24.0%**.
+Random probing reached **65.5%**, a fixed alternating-calibration
+policy **73.0%**, and the exact Bayes policy **80.5%**.
+
+At 8 probes, the recurrent learner reached **87.5%**, behind
+Bayes at **94.5%**. This is **not a Qwen result** and the controller
+was taught by a Bayesian oracle on the same causal world family.
+The learner's question head does not yet causally control its
+action choice; question-to-action binding and frozen-Qwen J-space
+interfaces remain open.
+
+[Code: `learner002.py`](learner002.py) ·
+[Protocol](EXPERIMENT_002A.md) · [Results](RESULTS_002A.md)
+
+```powershell
+python3.13 learner002.py --quick
+python3.13 learner002.py --train-episodes 4096 --epochs 35 --test-episodes 200 --budgets 4,8
+```
+
 ## Where this came from
 
 Our [Qwenimagination](https://github.com/anttiluode/Qwenimagination)
