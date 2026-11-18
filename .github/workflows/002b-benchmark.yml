@@ -17,13 +17,15 @@ jobs:
       - name: Install CPU PyTorch
         run: python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
       - name: Train and test three seeds, unchanged world
-        run: python learner002b.py --challenge a --train-episodes 2048 --epochs 25 --test-episodes 200 --budgets 4,8 --seeds 42,43,44 --out results/002b_a_explore.json
+        run: python learner002b.py --challenge a --train-episodes 2048 --epochs 25 --test-episodes 200 --budgets 4,8 --seeds 42,43,44 --save-checkpoints --out results/002b_a_explore.json
       - name: Train and test three seeds, world changes after baseline
-        run: python learner002b.py --challenge b --train-episodes 2048 --epochs 25 --test-seed 410000 --test-episodes 200 --budgets 4,8 --seeds 42,43,44 --out results/002b_b_explore.json
+        run: python learner002b.py --challenge b --train-episodes 2048 --epochs 25 --test-seed 410000 --test-episodes 200 --budgets 4,8 --seeds 42,43,44 --save-checkpoints --out results/002b_b_explore.json
       - name: Keep complete per-seed receipts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: 002b-exploratory-receipts
-          path: results/002b_*_explore.json
+          path: |
+            results/002b_*_explore.json
+            results/002b_*.pt
           if-no-files-found: warn
