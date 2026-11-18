@@ -144,6 +144,58 @@ python3.13 learner002.py --quick
 python3.13 learner002.py --train-episodes 4096 --epochs 35 --test-episodes 200 --budgets 4,8
 ```
 
+## Experiment 002B — a question that actually gates action
+
+**Implemented and tested.** Your observation that attention may be
+*pulled* by unresolved sensory surprise rather than freely picked by
+a central executive motivated a new question selector. It combines
+learned uncertainty with a decaying local prediction-error trace.
+A selected question chooses which learned belief slot reaches the
+action head; there is no direct h-to-action bypass.
+
+Two environments are now versioned: Challenge A (the original static
+world) and Challenge B (an **unannounced world change after the first
+observation**, so calibration alone cannot reveal the new content).
+Three independent model initialization seeds were tested in each
+environment, against state-zeroing, fixed-question, Bayes, random and
+calibration-only controls.
+
+**What held:** in Challenge B the intact question-conditioned GRU
+achieved **77–80%** full-state identification with four probes.
+State zeroing achieved **33.5%**, fixing the question to "world"
+**70–74.5%**, random **71.5%**, and fixed calibration **44%**.
+Bayes reference reached **80.5%**. At eight probes the intact
+controller reached **88.5–92.5%** versus Bayes **96.5%**.
+
+**What did NOT hold:** disabling local surprise-pull improved the
+original-world full-state accuracy to **79–79.5%** (versus
+73.5–75.5% with surprise enabled) and left Challenge B essentially
+unchanged (78.5% versus 77–80%). The simple surprise trace is not
+validated as better attention. A learned precision/relevance gate
+would need a new held-out test.
+
+The optional frozen-Qwen bridge now runs **Qwen-specific early-band
+question/belief J-lens swap probes**, but it has only passed
+fake-model plumbing tests; **no real 002B Qwen intervention results
+are claimed**. It does not yet close the Qwen-selected action loop.
+
+- [Honest 002B results](RESULTS_002B.md)
+- [Local surprise-pull mechanism](ATTENTION_PULL.md)
+- [Causal 002B code](learner002b.py) and [Challenge B](challenge_b.py)
+- [Frozen-Qwen experimental bridge](QWEN_BRIDGE_002B.md)
+- [002B protocol/design](EXPERIMENT_002B_DESIGN.md)
+
+```powershell
+python3.13 -m pip install -r requirements-learner.txt
+python3.13 learner002b.py --challenge b --quick --out results/b_smoke.json
+python3.13 learner002b.py --challenge b --train-episodes 2048 --epochs 25 --seeds 42 --test-seed 410000 --test-episodes 200 --save-checkpoints --out results/b_full.json
+```
+
+The [full three-seed GitHub run](https://github.com/anttiluode/WonderingQwenSol/actions/runs/44277193144)
+has paired receipts and downloadable trained checkpoints under
+Actions Artifacts. This is **Bayesian-teacher-distilled toy inference**,
+not free-standing self-directed thought.
+
 ## Where this came from
 
 Our [Qwenimagination](https://github.com/anttiluode/Qwenimagination)
