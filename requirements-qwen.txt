@@ -1,0 +1,3 @@
+# Optional. No third-party packages needed for the CPU baseline.
+torch>=2.1
+transformers>=4.45,<5
