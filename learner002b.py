@@ -196,7 +196,7 @@ def train(model, dataset, epochs=35, batch_size=128, lr=0.003, seed=42):
         losses.append(round(total / len(x), 5))
         if epoch == 0 or (epoch + 1) % 10 == 0 or epoch + 1 == epochs:
             print(f"seed={seed} epoch={epoch + 1}/{epochs} "
-                  f"loss={losses[-1]:.4f} local_gain={float(F.softplus(model.raw_surprise_gain)):.3f}",
+                  f"loss={losses[-1]:.4f} local_gain={float(F.softplus(model.raw_surprise_gain).detach()):.3f}",
                   flush=True)
     model.eval()
     return losses
@@ -314,6 +314,7 @@ def main():
     p.add_argument("--quick", action="store_true")
     p.add_argument("--overwrite", action="store_true")
     p.add_argument("--out", type=Path, default=Path("results/learner002b.json"))
+    p.add_argument("--save-checkpoints", action="store_true", help="save versioned state_dict per seed for the Qwen bridge")
     args = p.parse_args()
     if args.quick:
         args.train_episodes, args.epochs, args.test_episodes = 128, 2, 8
@@ -356,6 +357,19 @@ def main():
         }
         print(json.dumps({b: t["metrics"] for b, t in tests.items()}, indent=2))
         print(f"seed {seed} forced-q flips {grid['fraction_q_changes_top_action']}", flush=True)
+        if args.save_checkpoints:
+            ckpt = args.out.parent / f"002b_{args.challenge}_seed{seed}.pt"
+            if ckpt.exists() and not args.overwrite:
+                p.error(f"{ckpt} exists; --overwrite intentionally")
+            ckpt.parent.mkdir(parents=True, exist_ok=True)
+            torch.save({
+                "model_state_dict": model.state_dict(),
+                "hidden": args.hidden, "slot_size": model.slot_size,
+                "challenge": args.challenge, "train_seed": args.train_seed,
+                "train_episodes": args.train_episodes, "training_seed": seed,
+                "train_loss": losses[-1],
+            }, ckpt)
+            print("Checkpoint:", ckpt, flush=True)
     report["elapsed_seconds"] = round(time.perf_counter()-t0, 2)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     tmp = args.out.with_suffix(args.out.suffix + f".{os.getpid()}.tmp")
