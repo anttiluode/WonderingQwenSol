@@ -15,7 +15,7 @@ jobs:
       - name: Source-level and provenance tests
         run: python -m unittest discover -s tests -v
       - name: Compile optional Qwen adapter
-        run: python -m py_compile worldloop.py qwen_policy.py
+        run: python -m py_compile worldloop.py qwen_policy.py learner002.py
       - name: Paired controls for the uploaded Qwen eight-world pilot
         run: python worldloop.py --episodes 8 --seed 10000 --budget 4 --out /tmp/worldloop-8.json
       - name: Full 200-world CPU benchmark
