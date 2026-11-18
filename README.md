@@ -149,8 +149,9 @@ and show honest source attribution. A text-history baseline remains
 mandatory. If a dictionary, Kalman/Bayesian filter or ordinary prompting
 wins, report it.
 
-See [EXPERIMENT_001.md](EXPERIMENT_001.md) for pinned measurements and
-failure criteria. No results from a real Qwen run are claimed here.
+See [EXPERIMENT_001.md](EXPERIMENT_001.md) for the protocol and
+[RESULTS_001.md](RESULTS_001.md) for the verified 200-world CPU results.
+No results from a real Qwen run are claimed here.
 
 Research direction: Antti Luode. Sol / ChatGPT, initial engineering.
 MIT license. November 18, 2026.
