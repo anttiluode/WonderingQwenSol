@@ -1,0 +1,769 @@
+{
+  "status": "EXPLORATORY frozen-Qwen concept swap, not trained latent bridge",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "checkpoint": "results\\002b_b_seed42.pt",
+  "challenge": "b",
+  "conditions": [
+    "clean",
+    "q",
+    "belief",
+    "both",
+    "random_q"
+  ],
+  "band": [
+    4,
+    12
+  ],
+  "controls": [
+    "clean",
+    "q",
+    "belief",
+    "both",
+    "random_q"
+  ],
+  "limits": [
+    "Qwen receives q as a known concept direction, not a learned GRU-to-J projection.",
+    "GRU marginal is blended into yes/no J-space directions by an engineered interface.",
+    "No text posterior or Bayes oracle is injected, but the carrier prompt is supplied.",
+    "Action comparisons use mean token log likelihood and may be length biased.",
+    "Qwen q and belief causing a DIFFERENT action is a necessary control, not enough to show correct or general self-directed thought."
+  ],
+  "rows": [
+    {
+      "seed": 410000,
+      "mode": "clean",
+      "forced_question": "world_changed",
+      "natural_question": "world_changed",
+      "chosen_probe": "calibrate_vision",
+      "scores": {
+        "vision": -14.999332427978516,
+        "audio": -18.241519927978516,
+        "calibrate_vision": -3.0800626277923584,
+        "calibrate_audio": -5.169247627258301,
+        "touch": -10.764957427978516
+      },
+      "learned_belief": 0.888597,
+      "full_marginals": [
+        0.8885972499847412,
+        0.06390754878520966,
+        0.8304120302200317
+      ],
+      "raw_observations": [
+        {
+          "probe": "vision",
+          "value": 0
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        }
+      ],
+      "delta_vs_clean": {
+        "vision": 0.0,
+        "audio": 0.0,
+        "calibrate_vision": 0.0,
+        "calibrate_audio": 0.0,
+        "touch": 0.0
+      }
+    },
+    {
+      "seed": 410000,
+      "mode": "q",
+      "forced_question": "world_changed",
+      "natural_question": "world_changed",
+      "chosen_probe": "calibrate_vision",
+      "scores": {
+        "vision": -14.9187650680542,
+        "audio": -18.477359771728516,
+        "calibrate_vision": -3.1391398906707764,
+        "calibrate_audio": -5.383420944213867,
+        "touch": -11.9734525680542
+      },
+      "learned_belief": 0.888597,
+      "full_marginals": [
+        0.8885972499847412,
+        0.06390754878520966,
+        0.8304120302200317
+      ],
+      "raw_observations": [
+        {
+          "probe": "vision",
+          "value": 0
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        }
+      ],
+      "delta_vs_clean": {
+        "vision": 0.080567,
+        "audio": -0.23584,
+        "calibrate_vision": -0.059077,
+        "calibrate_audio": -0.214173,
+        "touch": -1.208495
+      }
+    },
+    {
+      "seed": 410000,
+      "mode": "belief",
+      "forced_question": "world_changed",
+      "natural_question": "world_changed",
+      "chosen_probe": "calibrate_vision",
+      "scores": {
+        "vision": -15.692599296569824,
+        "audio": -18.32541275024414,
+        "calibrate_vision": -2.8404481410980225,
+        "calibrate_audio": -4.714345455169678,
+        "touch": -12.270724296569824
+      },
+      "learned_belief": 0.888597,
+      "full_marginals": [
+        0.8885972499847412,
+        0.06390754878520966,
+        0.8304120302200317
+      ],
+      "raw_observations": [
+        {
+          "probe": "vision",
+          "value": 0
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        }
+      ],
+      "delta_vs_clean": {
+        "vision": -0.693267,
+        "audio": -0.083893,
+        "calibrate_vision": 0.239614,
+        "calibrate_audio": 0.454902,
+        "touch": -1.505767
+      }
+    },
+    {
+      "seed": 410000,
+      "mode": "both",
+      "forced_question": "world_changed",
+      "natural_question": "world_changed",
+      "chosen_probe": "calibrate_vision",
+      "scores": {
+        "vision": -14.776281356811523,
+        "audio": -18.373937606811523,
+        "calibrate_vision": -2.710421085357666,
+        "calibrate_audio": -4.676386833190918,
+        "touch": -12.284093856811523
+      },
+      "learned_belief": 0.888597,
+      "full_marginals": [
+        0.8885972499847412,
+        0.06390754878520966,
+        0.8304120302200317
+      ],
+      "raw_observations": [
+        {
+          "probe": "vision",
+          "value": 0
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        }
+      ],
+      "delta_vs_clean": {
+        "vision": 0.223051,
+        "audio": -0.132418,
+        "calibrate_vision": 0.369642,
+        "calibrate_audio": 0.492861,
+        "touch": -1.519136
+      }
+    },
+    {
+      "seed": 410000,
+      "mode": "random_q",
+      "forced_question": "world_changed",
+      "natural_question": "world_changed",
+      "chosen_probe": "calibrate_vision",
+      "scores": {
+        "vision": -13.829381942749023,
+        "audio": -17.786413192749023,
+        "calibrate_vision": -2.4162983894348145,
+        "calibrate_audio": -4.127978324890137,
+        "touch": -12.415319442749023
+      },
+      "learned_belief": 0.888597,
+      "full_marginals": [
+        0.8885972499847412,
+        0.06390754878520966,
+        0.8304120302200317
+      ],
+      "raw_observations": [
+        {
+          "probe": "vision",
+          "value": 0
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        }
+      ],
+      "delta_vs_clean": {
+        "vision": 1.16995,
+        "audio": 0.455107,
+        "calibrate_vision": 0.663764,
+        "calibrate_audio": 1.041269,
+        "touch": -1.650362
+      }
+    },
+    {
+      "seed": 410000,
+      "mode": "clean",
+      "forced_question": "vision_fault",
+      "natural_question": "world_changed",
+      "chosen_probe": "calibrate_vision",
+      "scores": {
+        "vision": -14.999332427978516,
+        "audio": -18.241519927978516,
+        "calibrate_vision": -3.0800626277923584,
+        "calibrate_audio": -5.169247627258301,
+        "touch": -10.764957427978516
+      },
+      "learned_belief": 0.063908,
+      "full_marginals": [
+        0.8885972499847412,
+        0.06390754878520966,
+        0.8304120302200317
+      ],
+      "raw_observations": [
+        {
+          "probe": "vision",
+          "value": 0
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        }
+      ],
+      "delta_vs_clean": {
+        "vision": 0.0,
+        "audio": 0.0,
+        "calibrate_vision": 0.0,
+        "calibrate_audio": 0.0,
+        "touch": 0.0
+      }
+    },
+    {
+      "seed": 410000,
+      "mode": "q",
+      "forced_question": "vision_fault",
+      "natural_question": "world_changed",
+      "chosen_probe": "calibrate_vision",
+      "scores": {
+        "vision": -14.231172561645508,
+        "audio": -18.610078811645508,
+        "calibrate_vision": -3.200432300567627,
+        "calibrate_audio": -5.272449493408203,
+        "touch": -11.067110061645508
+      },
+      "learned_belief": 0.063908,
+      "full_marginals": [
+        0.8885972499847412,
+        0.06390754878520966,
+        0.8304120302200317
+      ],
+      "raw_observations": [
+        {
+          "probe": "vision",
+          "value": 0
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        }
+      ],
+      "delta_vs_clean": {
+        "vision": 0.76816,
+        "audio": -0.368559,
+        "calibrate_vision": -0.12037,
+        "calibrate_audio": -0.103202,
+        "touch": -0.302153
+      }
+    },
+    {
+      "seed": 410000,
+      "mode": "belief",
+      "forced_question": "vision_fault",
+      "natural_question": "world_changed",
+      "chosen_probe": "calibrate_vision",
+      "scores": {
+        "vision": -14.74010181427002,
+        "audio": -18.794790267944336,
+        "calibrate_vision": -3.0910420417785645,
+        "calibrate_audio": -5.298468112945557,
+        "touch": -11.17760181427002
+      },
+      "learned_belief": 0.063908,
+      "full_marginals": [
+        0.8885972499847412,
+        0.06390754878520966,
+        0.8304120302200317
+      ],
+      "raw_observations": [
+        {
+          "probe": "vision",
+          "value": 0
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        }
+      ],
+      "delta_vs_clean": {
+        "vision": 0.259231,
+        "audio": -0.55327,
+        "calibrate_vision": -0.010979,
+        "calibrate_audio": -0.12922,
+        "touch": -0.412644
+      }
+    },
+    {
+      "seed": 410000,
+      "mode": "both",
+      "forced_question": "vision_fault",
+      "natural_question": "world_changed",
+      "chosen_probe": "calibrate_vision",
+      "scores": {
+        "vision": -13.954559326171875,
+        "audio": -19.286590576171875,
+        "calibrate_vision": -3.227308750152588,
+        "calibrate_audio": -5.485366344451904,
+        "touch": -11.720184326171875
+      },
+      "learned_belief": 0.063908,
+      "full_marginals": [
+        0.8885972499847412,
+        0.06390754878520966,
+        0.8304120302200317
+      ],
+      "raw_observations": [
+        {
+          "probe": "vision",
+          "value": 0
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        }
+      ],
+      "delta_vs_clean": {
+        "vision": 1.044773,
+        "audio": -1.045071,
+        "calibrate_vision": -0.147246,
+        "calibrate_audio": -0.316119,
+        "touch": -0.955227
+      }
+    },
+    {
+      "seed": 410000,
+      "mode": "random_q",
+      "forced_question": "vision_fault",
+      "natural_question": "world_changed",
+      "chosen_probe": "calibrate_vision",
+      "scores": {
+        "vision": -13.647130966186523,
+        "audio": -18.475255966186523,
+        "calibrate_vision": -2.960275650024414,
+        "calibrate_audio": -5.223065376281738,
+        "touch": -11.014318466186523
+      },
+      "learned_belief": 0.063908,
+      "full_marginals": [
+        0.8885972499847412,
+        0.06390754878520966,
+        0.8304120302200317
+      ],
+      "raw_observations": [
+        {
+          "probe": "vision",
+          "value": 0
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        }
+      ],
+      "delta_vs_clean": {
+        "vision": 1.352201,
+        "audio": -0.233736,
+        "calibrate_vision": 0.119787,
+        "calibrate_audio": -0.053818,
+        "touch": -0.249361
+      }
+    },
+    {
+      "seed": 410000,
+      "mode": "clean",
+      "forced_question": "audio_fault",
+      "natural_question": "world_changed",
+      "chosen_probe": "calibrate_vision",
+      "scores": {
+        "vision": -14.999332427978516,
+        "audio": -18.241519927978516,
+        "calibrate_vision": -3.0800626277923584,
+        "calibrate_audio": -5.169247627258301,
+        "touch": -10.764957427978516
+      },
+      "learned_belief": 0.830412,
+      "full_marginals": [
+        0.8885972499847412,
+        0.06390754878520966,
+        0.8304120302200317
+      ],
+      "raw_observations": [
+        {
+          "probe": "vision",
+          "value": 0
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        }
+      ],
+      "delta_vs_clean": {
+        "vision": 0.0,
+        "audio": 0.0,
+        "calibrate_vision": 0.0,
+        "calibrate_audio": 0.0,
+        "touch": 0.0
+      }
+    },
+    {
+      "seed": 410000,
+      "mode": "q",
+      "forced_question": "audio_fault",
+      "natural_question": "world_changed",
+      "chosen_probe": "calibrate_vision",
+      "scores": {
+        "vision": -16.03145408630371,
+        "audio": -16.82832908630371,
+        "calibrate_vision": -3.334491491317749,
+        "calibrate_audio": -5.440778732299805,
+        "touch": -11.843955039978027
+      },
+      "learned_belief": 0.830412,
+      "full_marginals": [
+        0.8885972499847412,
+        0.06390754878520966,
+        0.8304120302200317
+      ],
+      "raw_observations": [
+        {
+          "probe": "vision",
+          "value": 0
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        }
+      ],
+      "delta_vs_clean": {
+        "vision": -1.032122,
+        "audio": 1.413191,
+        "calibrate_vision": -0.254429,
+        "calibrate_audio": -0.271531,
+        "touch": -1.078998
+      }
+    },
+    {
+      "seed": 410000,
+      "mode": "belief",
+      "forced_question": "audio_fault",
+      "natural_question": "world_changed",
+      "chosen_probe": "calibrate_vision",
+      "scores": {
+        "vision": -15.743236541748047,
+        "audio": -18.356517791748047,
+        "calibrate_vision": -2.8262574672698975,
+        "calibrate_audio": -4.7318830490112305,
+        "touch": -12.172924041748047
+      },
+      "learned_belief": 0.830412,
+      "full_marginals": [
+        0.8885972499847412,
+        0.06390754878520966,
+        0.8304120302200317
+      ],
+      "raw_observations": [
+        {
+          "probe": "vision",
+          "value": 0
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        }
+      ],
+      "delta_vs_clean": {
+        "vision": -0.743904,
+        "audio": -0.114998,
+        "calibrate_vision": 0.253805,
+        "calibrate_audio": 0.437365,
+        "touch": -1.407967
+      }
+    },
+    {
+      "seed": 410000,
+      "mode": "both",
+      "forced_question": "audio_fault",
+      "natural_question": "world_changed",
+      "chosen_probe": "calibrate_vision",
+      "scores": {
+        "vision": -16.5615234375,
+        "audio": -17.2958984375,
+        "calibrate_vision": -3.0931053161621094,
+        "calibrate_audio": -5.129347801208496,
+        "touch": -13.8349609375
+      },
+      "learned_belief": 0.830412,
+      "full_marginals": [
+        0.8885972499847412,
+        0.06390754878520966,
+        0.8304120302200317
+      ],
+      "raw_observations": [
+        {
+          "probe": "vision",
+          "value": 0
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        }
+      ],
+      "delta_vs_clean": {
+        "vision": -1.562191,
+        "audio": 0.945621,
+        "calibrate_vision": -0.013043,
+        "calibrate_audio": 0.0399,
+        "touch": -3.070004
+      }
+    },
+    {
+      "seed": 410000,
+      "mode": "random_q",
+      "forced_question": "audio_fault",
+      "natural_question": "world_changed",
+      "chosen_probe": "calibrate_vision",
+      "scores": {
+        "vision": -13.807602882385254,
+        "audio": -17.77635383605957,
+        "calibrate_vision": -2.4361660480499268,
+        "calibrate_audio": -4.170093059539795,
+        "touch": -12.323227882385254
+      },
+      "learned_belief": 0.830412,
+      "full_marginals": [
+        0.8885972499847412,
+        0.06390754878520966,
+        0.8304120302200317
+      ],
+      "raw_observations": [
+        {
+          "probe": "vision",
+          "value": 0
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "vision",
+          "value": 1
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        },
+        {
+          "probe": "audio",
+          "value": 0
+        }
+      ],
+      "delta_vs_clean": {
+        "vision": 1.19173,
+        "audio": 0.465166,
+        "calibrate_vision": 0.643897,
+        "calibrate_audio": 0.999155,
+        "touch": -1.55827
+      }
+    }
+  ],
+  "seconds": 27.32
+}
