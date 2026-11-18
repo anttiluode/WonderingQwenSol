@@ -139,6 +139,7 @@ interfaces remain open.
 [Protocol](EXPERIMENT_002A.md) · [Results](RESULTS_002A.md)
 
 ```powershell
+python3.13 -m pip install -r requirements-learner.txt
 python3.13 learner002.py --quick
 python3.13 learner002.py --train-episodes 4096 --epochs 35 --test-episodes 200 --budgets 4,8
 ```
