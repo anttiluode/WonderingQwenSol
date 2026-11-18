@@ -151,7 +151,9 @@ wins, report it.
 
 See [EXPERIMENT_001.md](EXPERIMENT_001.md) for the protocol and
 [RESULTS_001.md](RESULTS_001.md) for the verified 200-world CPU results.
-No results from a real Qwen run are claimed here.
+A user-uploaded real Qwen **8-world exploratory pilot** has since arrived;
+see [PILOT_QWEN8.md](PILOT_QWEN8.md) for the matched controls and
+probe-fixation finding. It is not yet evidence of learned self-directed thought.
 
 Research direction: Antti Luode. Sol / ChatGPT, initial engineering.
 MIT license. November 18, 2026.
