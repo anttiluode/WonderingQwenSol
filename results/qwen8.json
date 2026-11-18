@@ -1,0 +1,710 @@
+{
+  "status": "simulation, not Qwen cognitive result",
+  "protocol": "All policies see paired hidden episodes and matched probe budgets.",
+  "seed_start": 10000,
+  "episodes": 8,
+  "followup_budget": 4,
+  "probe_accuracy": {
+    "vision": 0.9,
+    "audio": 0.9,
+    "calibrate_vision": 0.85,
+    "calibrate_audio": 0.85,
+    "touch": 0.75
+  },
+  "results": {
+    "qwen": {
+      "metrics": {
+        "world_changed_accuracy": 1.0,
+        "vision_fault_accuracy": 0.875,
+        "audio_fault_accuracy": 1.0,
+        "mean_brier": 0.0501,
+        "joint_map_accuracy": 0.875,
+        "mean_probe_cost": 6.2
+      },
+      "examples": [
+        {
+          "seed": 10000,
+          "policy": "qwen",
+          "hidden_truth": {
+            "world_changed": 0,
+            "vision_fault": 1,
+            "audio_fault": 1
+          },
+          "posterior": {
+            "world_changed": 0.094365,
+            "vision_fault": 0.094365,
+            "audio_fault": 0.999434
+          },
+          "map": {
+            "world_changed": 0,
+            "vision_fault": 0,
+            "audio_fault": 1
+          },
+          "observations": [
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 0,
+              "before": {
+                "world_changed": 0.39,
+                "vision_fault": 0.39,
+                "audio_fault": 0.39
+              },
+              "after": {
+                "world_changed": 0.25495,
+                "vision_fault": 0.25495,
+                "audio_fault": 0.631188
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "calibrate_audio",
+              "value": 1,
+              "before": {
+                "world_changed": 0.25495,
+                "vision_fault": 0.25495,
+                "audio_fault": 0.631188
+              },
+              "after": {
+                "world_changed": 0.134881,
+                "vision_fault": 0.134881,
+                "audio_fault": 0.906524
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "calibrate_audio",
+              "value": 1,
+              "before": {
+                "world_changed": 0.134881,
+                "vision_fault": 0.134881,
+                "audio_fault": 0.906524
+              },
+              "after": {
+                "world_changed": 0.101911,
+                "vision_fault": 0.101911,
+                "audio_fault": 0.982129
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "calibrate_audio",
+              "value": 1,
+              "before": {
+                "world_changed": 0.101911,
+                "vision_fault": 0.101911,
+                "audio_fault": 0.982129
+              },
+              "after": {
+                "world_changed": 0.095514,
+                "vision_fault": 0.095514,
+                "audio_fault": 0.996799
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "calibrate_audio",
+              "value": 1,
+              "before": {
+                "world_changed": 0.095514,
+                "vision_fault": 0.095514,
+                "audio_fault": 0.996799
+              },
+              "after": {
+                "world_changed": 0.094365,
+                "vision_fault": 0.094365,
+                "audio_fault": 0.999434
+              }
+            }
+          ],
+          "counterfactuals": [
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "audio_fault",
+              "p_one": 0.591832,
+              "information_gain_bits": 0.365688
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "world_changed",
+              "p_one": 0.784567,
+              "information_gain_bits": 0.021539
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "world_changed",
+              "p_one": 0.83749,
+              "information_gain_bits": 0.001553
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "world_changed",
+              "p_one": 0.847759,
+              "information_gain_bits": 6e-05
+            }
+          ],
+          "steps": [
+            {
+              "tick": 1,
+              "self_chosen_question": "audio_fault",
+              "action": "calibrate_audio",
+              "predicted_one": 0.591832,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 2,
+              "self_chosen_question": "world_changed",
+              "action": "calibrate_audio",
+              "predicted_one": 0.784567,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 3,
+              "self_chosen_question": "world_changed",
+              "action": "calibrate_audio",
+              "predicted_one": 0.83749,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 4,
+              "self_chosen_question": "world_changed",
+              "action": "calibrate_audio",
+              "predicted_one": 0.847759,
+              "observed": 1,
+              "source": "observed"
+            }
+          ],
+          "probe_cost": 6.2
+        },
+        {
+          "seed": 10001,
+          "policy": "qwen",
+          "hidden_truth": {
+            "world_changed": 0,
+            "vision_fault": 1,
+            "audio_fault": 0
+          },
+          "posterior": {
+            "world_changed": 0.031549,
+            "vision_fault": 0.994465,
+            "audio_fault": 0.041115
+          },
+          "map": {
+            "world_changed": 0,
+            "vision_fault": 1,
+            "audio_fault": 0
+          },
+          "observations": [
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.39,
+                "vision_fault": 0.39,
+                "audio_fault": 0.39
+              },
+              "after": {
+                "world_changed": 0.481544,
+                "vision_fault": 0.481544,
+                "audio_fault": 0.22651
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "calibrate_vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.481544,
+                "vision_fault": 0.481544,
+                "audio_fault": 0.22651
+              },
+              "after": {
+                "world_changed": 0.167585,
+                "vision_fault": 0.840338,
+                "audio_fault": 0.204788
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "calibrate_audio",
+              "value": 0,
+              "before": {
+                "world_changed": 0.167585,
+                "vision_fault": 0.840338,
+                "audio_fault": 0.204788
+              },
+              "after": {
+                "world_changed": 0.168141,
+                "vision_fault": 0.848384,
+                "audio_fault": 0.04347
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "calibrate_vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.168141,
+                "vision_fault": 0.848384,
+                "audio_fault": 0.04347
+              },
+              "after": {
+                "world_changed": 0.054961,
+                "vision_fault": 0.969427,
+                "audio_fault": 0.041519
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "calibrate_vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.054961,
+                "vision_fault": 0.969427,
+                "audio_fault": 0.041519
+              },
+              "after": {
+                "world_changed": 0.031549,
+                "vision_fault": 0.994465,
+                "audio_fault": 0.041115
+              }
+            }
+          ],
+          "counterfactuals": [
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "world_changed",
+              "p_one": 0.487081,
+              "information_gain_bits": 0.291168
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "audio_fault",
+              "p_one": 0.293352,
+              "information_gain_bits": 0.263171
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "world_changed",
+              "p_one": 0.743869,
+              "information_gain_bits": 0.168863
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "world_changed",
+              "p_one": 0.828599,
+              "information_gain_bits": 0.027648
+            }
+          ],
+          "steps": [
+            {
+              "tick": 1,
+              "self_chosen_question": "world_changed",
+              "action": "calibrate_vision",
+              "predicted_one": 0.487081,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 2,
+              "self_chosen_question": "audio_fault",
+              "action": "calibrate_audio",
+              "predicted_one": 0.293352,
+              "observed": 0,
+              "source": "observed"
+            },
+            {
+              "tick": 3,
+              "self_chosen_question": "world_changed",
+              "action": "calibrate_vision",
+              "predicted_one": 0.743869,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 4,
+              "self_chosen_question": "world_changed",
+              "action": "calibrate_vision",
+              "predicted_one": 0.828599,
+              "observed": 1,
+              "source": "observed"
+            }
+          ],
+          "probe_cost": 6.2
+        },
+        {
+          "seed": 10002,
+          "policy": "qwen",
+          "hidden_truth": {
+            "world_changed": 0,
+            "vision_fault": 1,
+            "audio_fault": 0
+          },
+          "posterior": {
+            "world_changed": 0.031549,
+            "vision_fault": 0.994465,
+            "audio_fault": 0.041115
+          },
+          "map": {
+            "world_changed": 0,
+            "vision_fault": 1,
+            "audio_fault": 0
+          },
+          "observations": [
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.39,
+                "vision_fault": 0.39,
+                "audio_fault": 0.39
+              },
+              "after": {
+                "world_changed": 0.481544,
+                "vision_fault": 0.481544,
+                "audio_fault": 0.22651
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "calibrate_vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.481544,
+                "vision_fault": 0.481544,
+                "audio_fault": 0.22651
+              },
+              "after": {
+                "world_changed": 0.167585,
+                "vision_fault": 0.840338,
+                "audio_fault": 0.204788
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "calibrate_audio",
+              "value": 0,
+              "before": {
+                "world_changed": 0.167585,
+                "vision_fault": 0.840338,
+                "audio_fault": 0.204788
+              },
+              "after": {
+                "world_changed": 0.168141,
+                "vision_fault": 0.848384,
+                "audio_fault": 0.04347
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "calibrate_vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.168141,
+                "vision_fault": 0.848384,
+                "audio_fault": 0.04347
+              },
+              "after": {
+                "world_changed": 0.054961,
+                "vision_fault": 0.969427,
+                "audio_fault": 0.041519
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "calibrate_vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.054961,
+                "vision_fault": 0.969427,
+                "audio_fault": 0.041519
+              },
+              "after": {
+                "world_changed": 0.031549,
+                "vision_fault": 0.994465,
+                "audio_fault": 0.041115
+              }
+            }
+          ],
+          "counterfactuals": [
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "world_changed",
+              "p_one": 0.487081,
+              "information_gain_bits": 0.291168
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "audio_fault",
+              "p_one": 0.293352,
+              "information_gain_bits": 0.263171
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "world_changed",
+              "p_one": 0.743869,
+              "information_gain_bits": 0.168863
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "world_changed",
+              "p_one": 0.828599,
+              "information_gain_bits": 0.027648
+            }
+          ],
+          "steps": [
+            {
+              "tick": 1,
+              "self_chosen_question": "world_changed",
+              "action": "calibrate_vision",
+              "predicted_one": 0.487081,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 2,
+              "self_chosen_question": "audio_fault",
+              "action": "calibrate_audio",
+              "predicted_one": 0.293352,
+              "observed": 0,
+              "source": "observed"
+            },
+            {
+              "tick": 3,
+              "self_chosen_question": "world_changed",
+              "action": "calibrate_vision",
+              "predicted_one": 0.743869,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 4,
+              "self_chosen_question": "world_changed",
+              "action": "calibrate_vision",
+              "predicted_one": 0.828599,
+              "observed": 1,
+              "source": "observed"
+            }
+          ],
+          "probe_cost": 6.2
+        }
+      ]
+    }
+  },
+  "qwen_diagnostics": {
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "device": "cuda",
+    "invalid_reply_fallbacks_to_vision": 0,
+    "decisions": [
+      {
+        "question": "audio_fault",
+        "model_reply": "calibrate_audio",
+        "chosen_probe": "calibrate_audio",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_audio",
+        "chosen_probe": "calibrate_audio",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_audio",
+        "chosen_probe": "calibrate_audio",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_audio",
+        "chosen_probe": "calibrate_audio",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_vision",
+        "chosen_probe": "calibrate_vision",
+        "valid": true
+      },
+      {
+        "question": "audio_fault",
+        "model_reply": "calibrate_audio",
+        "chosen_probe": "calibrate_audio",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_vision",
+        "chosen_probe": "calibrate_vision",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_vision",
+        "chosen_probe": "calibrate_vision",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_vision",
+        "chosen_probe": "calibrate_vision",
+        "valid": true
+      },
+      {
+        "question": "audio_fault",
+        "model_reply": "calibrate_audio",
+        "chosen_probe": "calibrate_audio",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_vision",
+        "chosen_probe": "calibrate_vision",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_vision",
+        "chosen_probe": "calibrate_vision",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_vision",
+        "chosen_probe": "calibrate_vision",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_vision",
+        "chosen_probe": "calibrate_vision",
+        "valid": true
+      },
+      {
+        "question": "audio_fault",
+        "model_reply": "calibrate_audio",
+        "chosen_probe": "calibrate_audio",
+        "valid": true
+      },
+      {
+        "question": "audio_fault",
+        "model_reply": "calibrate_audio",
+        "chosen_probe": "calibrate_audio",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_vision",
+        "chosen_probe": "calibrate_vision",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_vision",
+        "chosen_probe": "calibrate_vision",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_vision",
+        "chosen_probe": "calibrate_vision",
+        "valid": true
+      },
+      {
+        "question": "audio_fault",
+        "model_reply": "calibrate_audio",
+        "chosen_probe": "calibrate_audio",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_vision",
+        "chosen_probe": "calibrate_vision",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_vision",
+        "chosen_probe": "calibrate_vision",
+        "valid": true
+      },
+      {
+        "question": "audio_fault",
+        "model_reply": "calibrate_audio",
+        "chosen_probe": "calibrate_audio",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_vision",
+        "chosen_probe": "calibrate_vision",
+        "valid": true
+      },
+      {
+        "question": "audio_fault",
+        "model_reply": "calibrate_audio",
+        "chosen_probe": "calibrate_audio",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_audio",
+        "chosen_probe": "calibrate_audio",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_audio",
+        "chosen_probe": "calibrate_audio",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_audio",
+        "chosen_probe": "calibrate_audio",
+        "valid": true
+      },
+      {
+        "question": "audio_fault",
+        "model_reply": "calibrate_audio",
+        "chosen_probe": "calibrate_audio",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_audio",
+        "chosen_probe": "calibrate_audio",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_audio",
+        "chosen_probe": "calibrate_audio",
+        "valid": true
+      },
+      {
+        "question": "world_changed",
+        "model_reply": "calibrate_audio",
+        "chosen_probe": "calibrate_audio",
+        "valid": true
+      }
+    ]
+  }
+}

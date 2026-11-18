@@ -1,0 +1,2352 @@
+{
+  "status": "simulation, not Qwen cognitive result",
+  "protocol": "All policies see paired hidden episodes and matched probe budgets.",
+  "seed_start": 10000,
+  "episodes": 100,
+  "followup_budget": 4,
+  "probe_accuracy": {
+    "vision": 0.9,
+    "audio": 0.9,
+    "calibrate_vision": 0.85,
+    "calibrate_audio": 0.85,
+    "touch": 0.75
+  },
+  "results": {
+    "active": {
+      "metrics": {
+        "world_changed_accuracy": 0.89,
+        "vision_fault_accuracy": 0.91,
+        "audio_fault_accuracy": 0.91,
+        "mean_brier": 0.0717,
+        "joint_map_accuracy": 0.85,
+        "mean_probe_cost": 5.858
+      },
+      "examples": [
+        {
+          "seed": 10000,
+          "policy": "active",
+          "hidden_truth": {
+            "world_changed": 0,
+            "vision_fault": 1,
+            "audio_fault": 1
+          },
+          "posterior": {
+            "world_changed": 0.079119,
+            "vision_fault": 0.196319,
+            "audio_fault": 0.96115
+          },
+          "map": {
+            "world_changed": 0,
+            "vision_fault": 0,
+            "audio_fault": 1
+          },
+          "observations": [
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 0,
+              "before": {
+                "world_changed": 0.39,
+                "vision_fault": 0.39,
+                "audio_fault": 0.39
+              },
+              "after": {
+                "world_changed": 0.25495,
+                "vision_fault": 0.25495,
+                "audio_fault": 0.631188
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "calibrate_audio",
+              "value": 1,
+              "before": {
+                "world_changed": 0.25495,
+                "vision_fault": 0.25495,
+                "audio_fault": 0.631188
+              },
+              "after": {
+                "world_changed": 0.134881,
+                "vision_fault": 0.134881,
+                "audio_fault": 0.906524
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "audio",
+              "value": 1,
+              "before": {
+                "world_changed": 0.134881,
+                "vision_fault": 0.134881,
+                "audio_fault": 0.906524
+              },
+              "after": {
+                "world_changed": 0.066703,
+                "vision_fault": 0.072374,
+                "audio_fault": 0.938494
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "calibrate_audio",
+              "value": 1,
+              "before": {
+                "world_changed": 0.066703,
+                "vision_fault": 0.072374,
+                "audio_fault": 0.938494
+              },
+              "after": {
+                "world_changed": 0.02169,
+                "vision_fault": 0.041326,
+                "audio_fault": 0.988567
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "calibrate_vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.02169,
+                "vision_fault": 0.041326,
+                "audio_fault": 0.988567
+              },
+              "after": {
+                "world_changed": 0.079119,
+                "vision_fault": 0.196319,
+                "audio_fault": 0.96115
+              }
+            }
+          ],
+          "counterfactuals": [
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "audio_fault",
+              "p_one": 0.222772,
+              "information_gain_bits": 0.050164
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "joint",
+              "p_one": 0.222772,
+              "information_gain_bits": 0.296202
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "audio_fault",
+              "p_one": 0.713861,
+              "information_gain_bits": 0.072801
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "joint",
+              "p_one": 0.713861,
+              "information_gain_bits": 0.394685
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "audio_fault",
+              "p_one": 0.328465,
+              "information_gain_bits": 0.069997
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "joint",
+              "p_one": 0.328465,
+              "information_gain_bits": 0.30351
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "audio_fault",
+              "p_one": 0.591832,
+              "information_gain_bits": 0.365688
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "joint",
+              "p_one": 0.591832,
+              "information_gain_bits": 0.365688
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "audio_fault",
+              "p_one": 0.377475,
+              "information_gain_bits": 0.033698
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "joint",
+              "p_one": 0.377475,
+              "information_gain_bits": 0.144961
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "audio_fault",
+              "p_one": 0.591832,
+              "information_gain_bits": 0.365688
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "world_changed",
+              "p_one": 0.159222,
+              "information_gain_bits": 0.018347
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "joint",
+              "p_one": 0.159222,
+              "information_gain_bits": 0.16345
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "world_changed",
+              "p_one": 0.796612,
+              "information_gain_bits": 0.091367
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "joint",
+              "p_one": 0.796612,
+              "information_gain_bits": 0.259656
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "world_changed",
+              "p_one": 0.244417,
+              "information_gain_bits": 0.089048
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "joint",
+              "p_one": 0.244417,
+              "information_gain_bits": 0.192468
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "world_changed",
+              "p_one": 0.784567,
+              "information_gain_bits": 0.021539
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "joint",
+              "p_one": 0.784567,
+              "information_gain_bits": 0.1419
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "world_changed",
+              "p_one": 0.31744,
+              "information_gain_bits": 0.090298
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "joint",
+              "p_one": 0.31744,
+              "information_gain_bits": 0.090298
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "world_changed",
+              "p_one": 0.796612,
+              "information_gain_bits": 0.091367
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "world_changed",
+              "p_one": 0.137171,
+              "information_gain_bits": 0.014498
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "joint",
+              "p_one": 0.137171,
+              "information_gain_bits": 0.107787
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "world_changed",
+              "p_one": 0.887022,
+              "information_gain_bits": 0.005592
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "joint",
+              "p_one": 0.887022,
+              "information_gain_bits": 0.039839
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "world_changed",
+              "p_one": 0.200662,
+              "information_gain_bits": 0.047274
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "joint",
+              "p_one": 0.200662,
+              "information_gain_bits": 0.113409
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "world_changed",
+              "p_one": 0.806946,
+              "information_gain_bits": 0.073701
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "joint",
+              "p_one": 0.806946,
+              "information_gain_bits": 0.097976
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "world_changed",
+              "p_one": 0.283352,
+              "information_gain_bits": 0.0487
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "joint",
+              "p_one": 0.283352,
+              "information_gain_bits": 0.0487
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "world_changed",
+              "p_one": 0.806946,
+              "information_gain_bits": 0.073701
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "vision_fault",
+              "p_one": 0.125491,
+              "information_gain_bits": 0.039858
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "joint",
+              "p_one": 0.125491,
+              "information_gain_bits": 0.075947
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "vision_fault",
+              "p_one": 0.890155,
+              "information_gain_bits": 0.00625
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "joint",
+              "p_one": 0.890155,
+              "information_gain_bits": 0.030453
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "vision_fault",
+              "p_one": 0.178928,
+              "information_gain_bits": 0.067886
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "joint",
+              "p_one": 0.178928,
+              "information_gain_bits": 0.067886
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "vision_fault",
+              "p_one": 0.841997,
+              "information_gain_bits": 0.002829
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "joint",
+              "p_one": 0.841997,
+              "information_gain_bits": 0.019671
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "vision_fault",
+              "p_one": 0.260845,
+              "information_gain_bits": 0.004587
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "joint",
+              "p_one": 0.260845,
+              "information_gain_bits": 0.016741
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "vision_fault",
+              "p_one": 0.178928,
+              "information_gain_bits": 0.067886
+            }
+          ],
+          "steps": [
+            {
+              "tick": 1,
+              "self_chosen_question": "audio_fault",
+              "action": "calibrate_audio",
+              "predicted_one": 0.591832,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 2,
+              "self_chosen_question": "world_changed",
+              "action": "audio",
+              "predicted_one": 0.796612,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 3,
+              "self_chosen_question": "world_changed",
+              "action": "calibrate_audio",
+              "predicted_one": 0.806946,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 4,
+              "self_chosen_question": "vision_fault",
+              "action": "calibrate_vision",
+              "predicted_one": 0.178928,
+              "observed": 1,
+              "source": "observed"
+            }
+          ],
+          "probe_cost": 5.9
+        },
+        {
+          "seed": 10001,
+          "policy": "active",
+          "hidden_truth": {
+            "world_changed": 0,
+            "vision_fault": 1,
+            "audio_fault": 0
+          },
+          "posterior": {
+            "world_changed": 0.011368,
+            "vision_fault": 0.986598,
+            "audio_fault": 0.009457
+          },
+          "map": {
+            "world_changed": 0,
+            "vision_fault": 1,
+            "audio_fault": 0
+          },
+          "observations": [
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.39,
+                "vision_fault": 0.39,
+                "audio_fault": 0.39
+              },
+              "after": {
+                "world_changed": 0.481544,
+                "vision_fault": 0.481544,
+                "audio_fault": 0.22651
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "calibrate_vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.481544,
+                "vision_fault": 0.481544,
+                "audio_fault": 0.22651
+              },
+              "after": {
+                "world_changed": 0.167585,
+                "vision_fault": 0.840338,
+                "audio_fault": 0.204788
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "calibrate_audio",
+              "value": 0,
+              "before": {
+                "world_changed": 0.167585,
+                "vision_fault": 0.840338,
+                "audio_fault": 0.204788
+              },
+              "after": {
+                "world_changed": 0.168141,
+                "vision_fault": 0.848384,
+                "audio_fault": 0.04347
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "audio",
+              "value": 0,
+              "before": {
+                "world_changed": 0.168141,
+                "vision_fault": 0.848384,
+                "audio_fault": 0.04347
+              },
+              "after": {
+                "world_changed": 0.030379,
+                "vision_fault": 0.969837,
+                "audio_fault": 0.013581
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "audio",
+              "value": 0,
+              "before": {
+                "world_changed": 0.030379,
+                "vision_fault": 0.969837,
+                "audio_fault": 0.013581
+              },
+              "after": {
+                "world_changed": 0.011368,
+                "vision_fault": 0.986598,
+                "audio_fault": 0.009457
+              }
+            }
+          ],
+          "counterfactuals": [
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "world_changed",
+              "p_one": 0.848993,
+              "information_gain_bits": 0.004344
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "joint",
+              "p_one": 0.848993,
+              "information_gain_bits": 0.143358
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "world_changed",
+              "p_one": 0.516107,
+              "information_gain_bits": 0.144254
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "joint",
+              "p_one": 0.516107,
+              "information_gain_bits": 0.530256
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "world_changed",
+              "p_one": 0.487081,
+              "information_gain_bits": 0.291168
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "joint",
+              "p_one": 0.487081,
+              "information_gain_bits": 0.389678
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "world_changed",
+              "p_one": 0.308557,
+              "information_gain_bits": 0.001518
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "joint",
+              "p_one": 0.308557,
+              "information_gain_bits": 0.28166
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "world_changed",
+              "p_one": 0.490772,
+              "information_gain_bits": 0.188476
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "joint",
+              "p_one": 0.490772,
+              "information_gain_bits": 0.188476
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "world_changed",
+              "p_one": 0.487081,
+              "information_gain_bits": 0.291168
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "audio_fault",
+              "p_one": 0.86886,
+              "information_gain_bits": 0.002737
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "joint",
+              "p_one": 0.86886,
+              "information_gain_bits": 0.091561
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "audio_fault",
+              "p_one": 0.343886,
+              "information_gain_bits": 0.143458
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "joint",
+              "p_one": 0.343886,
+              "information_gain_bits": 0.459493
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "audio_fault",
+              "p_one": 0.738236,
+              "information_gain_bits": 0.000729
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "joint",
+              "p_one": 0.738236,
+              "information_gain_bits": 0.219556
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "audio_fault",
+              "p_one": 0.293352,
+              "information_gain_bits": 0.263171
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "joint",
+              "p_one": 0.293352,
+              "information_gain_bits": 0.263171
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "audio_fault",
+              "p_one": 0.333793,
+              "information_gain_bits": 2e-06
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "joint",
+              "p_one": 0.333793,
+              "information_gain_bits": 0.107476
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "audio_fault",
+              "p_one": 0.293352,
+              "information_gain_bits": 0.263171
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "world_changed",
+              "p_one": 0.87742,
+              "information_gain_bits": 0.00844
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "joint",
+              "p_one": 0.87742,
+              "information_gain_bits": 0.067735
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "world_changed",
+              "p_one": 0.257824,
+              "information_gain_bits": 0.253052
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "joint",
+              "p_one": 0.257824,
+              "information_gain_bits": 0.354449
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "world_changed",
+              "p_one": 0.743869,
+              "information_gain_bits": 0.168863
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "joint",
+              "p_one": 0.743869,
+              "information_gain_bits": 0.211012
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "world_changed",
+              "p_one": 0.180429,
+              "information_gain_bits": 0.0
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "joint",
+              "p_one": 0.180429,
+              "information_gain_bits": 0.071175
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "world_changed",
+              "p_one": 0.334071,
+              "information_gain_bits": 0.107753
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "joint",
+              "p_one": 0.334071,
+              "information_gain_bits": 0.107753
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "world_changed",
+              "p_one": 0.257824,
+              "information_gain_bits": 0.253052
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "world_changed",
+              "p_one": 0.893206,
+              "information_gain_bits": 0.002224
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "joint",
+              "p_one": 0.893206,
+              "information_gain_bits": 0.021174
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "world_changed",
+              "p_one": 0.121265,
+              "information_gain_bits": 0.0382
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "joint",
+              "p_one": 0.121265,
+              "information_gain_bits": 0.063991
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "world_changed",
+              "p_one": 0.828886,
+              "information_gain_bits": 0.03707
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "joint",
+              "p_one": 0.828886,
+              "information_gain_bits": 0.050406
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "world_changed",
+              "p_one": 0.159507,
+              "information_gain_bits": 0.004931
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "joint",
+              "p_one": 0.159507,
+              "information_gain_bits": 0.023288
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "world_changed",
+              "p_one": 0.26519,
+              "information_gain_bits": 0.023199
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "joint",
+              "p_one": 0.26519,
+              "information_gain_bits": 0.023199
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "world_changed",
+              "p_one": 0.121265,
+              "information_gain_bits": 0.0382
+            }
+          ],
+          "steps": [
+            {
+              "tick": 1,
+              "self_chosen_question": "world_changed",
+              "action": "calibrate_vision",
+              "predicted_one": 0.487081,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 2,
+              "self_chosen_question": "audio_fault",
+              "action": "calibrate_audio",
+              "predicted_one": 0.293352,
+              "observed": 0,
+              "source": "observed"
+            },
+            {
+              "tick": 3,
+              "self_chosen_question": "world_changed",
+              "action": "audio",
+              "predicted_one": 0.257824,
+              "observed": 0,
+              "source": "observed"
+            },
+            {
+              "tick": 4,
+              "self_chosen_question": "world_changed",
+              "action": "audio",
+              "predicted_one": 0.121265,
+              "observed": 0,
+              "source": "observed"
+            }
+          ],
+          "probe_cost": 5.6
+        },
+        {
+          "seed": 10002,
+          "policy": "active",
+          "hidden_truth": {
+            "world_changed": 0,
+            "vision_fault": 1,
+            "audio_fault": 0
+          },
+          "posterior": {
+            "world_changed": 0.011368,
+            "vision_fault": 0.986598,
+            "audio_fault": 0.009457
+          },
+          "map": {
+            "world_changed": 0,
+            "vision_fault": 1,
+            "audio_fault": 0
+          },
+          "observations": [
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.39,
+                "vision_fault": 0.39,
+                "audio_fault": 0.39
+              },
+              "after": {
+                "world_changed": 0.481544,
+                "vision_fault": 0.481544,
+                "audio_fault": 0.22651
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "calibrate_vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.481544,
+                "vision_fault": 0.481544,
+                "audio_fault": 0.22651
+              },
+              "after": {
+                "world_changed": 0.167585,
+                "vision_fault": 0.840338,
+                "audio_fault": 0.204788
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "calibrate_audio",
+              "value": 0,
+              "before": {
+                "world_changed": 0.167585,
+                "vision_fault": 0.840338,
+                "audio_fault": 0.204788
+              },
+              "after": {
+                "world_changed": 0.168141,
+                "vision_fault": 0.848384,
+                "audio_fault": 0.04347
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "audio",
+              "value": 0,
+              "before": {
+                "world_changed": 0.168141,
+                "vision_fault": 0.848384,
+                "audio_fault": 0.04347
+              },
+              "after": {
+                "world_changed": 0.030379,
+                "vision_fault": 0.969837,
+                "audio_fault": 0.013581
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "audio",
+              "value": 0,
+              "before": {
+                "world_changed": 0.030379,
+                "vision_fault": 0.969837,
+                "audio_fault": 0.013581
+              },
+              "after": {
+                "world_changed": 0.011368,
+                "vision_fault": 0.986598,
+                "audio_fault": 0.009457
+              }
+            }
+          ],
+          "counterfactuals": [
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "world_changed",
+              "p_one": 0.848993,
+              "information_gain_bits": 0.004344
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "joint",
+              "p_one": 0.848993,
+              "information_gain_bits": 0.143358
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "world_changed",
+              "p_one": 0.516107,
+              "information_gain_bits": 0.144254
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "joint",
+              "p_one": 0.516107,
+              "information_gain_bits": 0.530256
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "world_changed",
+              "p_one": 0.487081,
+              "information_gain_bits": 0.291168
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "joint",
+              "p_one": 0.487081,
+              "information_gain_bits": 0.389678
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "world_changed",
+              "p_one": 0.308557,
+              "information_gain_bits": 0.001518
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "joint",
+              "p_one": 0.308557,
+              "information_gain_bits": 0.28166
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "world_changed",
+              "p_one": 0.490772,
+              "information_gain_bits": 0.188476
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "joint",
+              "p_one": 0.490772,
+              "information_gain_bits": 0.188476
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "world_changed",
+              "p_one": 0.487081,
+              "information_gain_bits": 0.291168
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "audio_fault",
+              "p_one": 0.86886,
+              "information_gain_bits": 0.002737
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "joint",
+              "p_one": 0.86886,
+              "information_gain_bits": 0.091561
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "audio_fault",
+              "p_one": 0.343886,
+              "information_gain_bits": 0.143458
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "joint",
+              "p_one": 0.343886,
+              "information_gain_bits": 0.459493
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "audio_fault",
+              "p_one": 0.738236,
+              "information_gain_bits": 0.000729
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "joint",
+              "p_one": 0.738236,
+              "information_gain_bits": 0.219556
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "audio_fault",
+              "p_one": 0.293352,
+              "information_gain_bits": 0.263171
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "joint",
+              "p_one": 0.293352,
+              "information_gain_bits": 0.263171
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "audio_fault",
+              "p_one": 0.333793,
+              "information_gain_bits": 2e-06
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "joint",
+              "p_one": 0.333793,
+              "information_gain_bits": 0.107476
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "audio_fault",
+              "p_one": 0.293352,
+              "information_gain_bits": 0.263171
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "world_changed",
+              "p_one": 0.87742,
+              "information_gain_bits": 0.00844
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "joint",
+              "p_one": 0.87742,
+              "information_gain_bits": 0.067735
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "world_changed",
+              "p_one": 0.257824,
+              "information_gain_bits": 0.253052
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "joint",
+              "p_one": 0.257824,
+              "information_gain_bits": 0.354449
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "world_changed",
+              "p_one": 0.743869,
+              "information_gain_bits": 0.168863
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "joint",
+              "p_one": 0.743869,
+              "information_gain_bits": 0.211012
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "world_changed",
+              "p_one": 0.180429,
+              "information_gain_bits": 0.0
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "joint",
+              "p_one": 0.180429,
+              "information_gain_bits": 0.071175
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "world_changed",
+              "p_one": 0.334071,
+              "information_gain_bits": 0.107753
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "joint",
+              "p_one": 0.334071,
+              "information_gain_bits": 0.107753
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "world_changed",
+              "p_one": 0.257824,
+              "information_gain_bits": 0.253052
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "world_changed",
+              "p_one": 0.893206,
+              "information_gain_bits": 0.002224
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "joint",
+              "p_one": 0.893206,
+              "information_gain_bits": 0.021174
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "world_changed",
+              "p_one": 0.121265,
+              "information_gain_bits": 0.0382
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "joint",
+              "p_one": 0.121265,
+              "information_gain_bits": 0.063991
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "world_changed",
+              "p_one": 0.828886,
+              "information_gain_bits": 0.03707
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "joint",
+              "p_one": 0.828886,
+              "information_gain_bits": 0.050406
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "world_changed",
+              "p_one": 0.159507,
+              "information_gain_bits": 0.004931
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "joint",
+              "p_one": 0.159507,
+              "information_gain_bits": 0.023288
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "world_changed",
+              "p_one": 0.26519,
+              "information_gain_bits": 0.023199
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "joint",
+              "p_one": 0.26519,
+              "information_gain_bits": 0.023199
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "world_changed",
+              "p_one": 0.121265,
+              "information_gain_bits": 0.0382
+            }
+          ],
+          "steps": [
+            {
+              "tick": 1,
+              "self_chosen_question": "world_changed",
+              "action": "calibrate_vision",
+              "predicted_one": 0.487081,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 2,
+              "self_chosen_question": "audio_fault",
+              "action": "calibrate_audio",
+              "predicted_one": 0.293352,
+              "observed": 0,
+              "source": "observed"
+            },
+            {
+              "tick": 3,
+              "self_chosen_question": "world_changed",
+              "action": "audio",
+              "predicted_one": 0.257824,
+              "observed": 0,
+              "source": "observed"
+            },
+            {
+              "tick": 4,
+              "self_chosen_question": "world_changed",
+              "action": "audio",
+              "predicted_one": 0.121265,
+              "observed": 0,
+              "source": "observed"
+            }
+          ],
+          "probe_cost": 5.6
+        }
+      ]
+    },
+    "no_fault_model_same_evidence": {
+      "metrics": {
+        "world_changed_accuracy": 0.56,
+        "vision_fault_accuracy": 0.54,
+        "audio_fault_accuracy": 0.59,
+        "mean_brier": 0.3799,
+        "joint_map_accuracy": 0.22,
+        "mean_probe_cost": 5.858
+      },
+      "note": "Same actions/measurements as active, but only world-change hypotheses."
+    },
+    "random": {
+      "metrics": {
+        "world_changed_accuracy": 0.77,
+        "vision_fault_accuracy": 0.77,
+        "audio_fault_accuracy": 0.83,
+        "mean_brier": 0.1446,
+        "joint_map_accuracy": 0.73,
+        "mean_probe_cost": 5.918
+      },
+      "examples": [
+        {
+          "seed": 10000,
+          "policy": "random",
+          "hidden_truth": {
+            "world_changed": 0,
+            "vision_fault": 1,
+            "audio_fault": 1
+          },
+          "posterior": {
+            "world_changed": 0.550791,
+            "vision_fault": 0.589449,
+            "audio_fault": 0.435173
+          },
+          "map": {
+            "world_changed": 1,
+            "vision_fault": 1,
+            "audio_fault": 0
+          },
+          "observations": [
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 0,
+              "before": {
+                "world_changed": 0.39,
+                "vision_fault": 0.39,
+                "audio_fault": 0.39
+              },
+              "after": {
+                "world_changed": 0.25495,
+                "vision_fault": 0.25495,
+                "audio_fault": 0.631188
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "calibrate_vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.25495,
+                "vision_fault": 0.25495,
+                "audio_fault": 0.631188
+              },
+              "after": {
+                "world_changed": 0.496232,
+                "vision_fault": 0.659759,
+                "audio_fault": 0.414846
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "touch",
+              "value": 1,
+              "before": {
+                "world_changed": 0.496232,
+                "vision_fault": 0.659759,
+                "audio_fault": 0.414846
+              },
+              "after": {
+                "world_changed": 0.747163,
+                "vision_fault": 0.794062,
+                "audio_fault": 0.330749
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "audio",
+              "value": 1,
+              "before": {
+                "world_changed": 0.747163,
+                "vision_fault": 0.794062,
+                "audio_fault": 0.330749
+              },
+              "after": {
+                "world_changed": 0.786252,
+                "vision_fault": 0.765423,
+                "audio_fault": 0.225408
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "touch",
+              "value": 0,
+              "before": {
+                "world_changed": 0.786252,
+                "vision_fault": 0.765423,
+                "audio_fault": 0.225408
+              },
+              "after": {
+                "world_changed": 0.550791,
+                "vision_fault": 0.589449,
+                "audio_fault": 0.435173
+              }
+            }
+          ],
+          "counterfactuals": [
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "audio_fault",
+              "p_one": 0.328465,
+              "information_gain_bits": 0.069997
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "world_changed",
+              "p_one": 0.498116,
+              "information_gain_bits": 0.188712
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "audio_fault",
+              "p_one": 0.66823,
+              "information_gain_bits": 0.071202
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "world_changed",
+              "p_one": 0.643126,
+              "information_gain_bits": 0.12878
+            }
+          ],
+          "steps": [
+            {
+              "tick": 1,
+              "self_chosen_question": "audio_fault",
+              "action": "calibrate_vision",
+              "predicted_one": 0.328465,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 2,
+              "self_chosen_question": "world_changed",
+              "action": "touch",
+              "predicted_one": 0.498116,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 3,
+              "self_chosen_question": "audio_fault",
+              "action": "audio",
+              "predicted_one": 0.66823,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 4,
+              "self_chosen_question": "world_changed",
+              "action": "touch",
+              "predicted_one": 0.643126,
+              "observed": 0,
+              "source": "observed"
+            }
+          ],
+          "probe_cost": 6.5
+        },
+        {
+          "seed": 10001,
+          "policy": "random",
+          "hidden_truth": {
+            "world_changed": 0,
+            "vision_fault": 1,
+            "audio_fault": 0
+          },
+          "posterior": {
+            "world_changed": 0.036608,
+            "vision_fault": 0.959938,
+            "audio_fault": 0.051245
+          },
+          "map": {
+            "world_changed": 0,
+            "vision_fault": 1,
+            "audio_fault": 0
+          },
+          "observations": [
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.39,
+                "vision_fault": 0.39,
+                "audio_fault": 0.39
+              },
+              "after": {
+                "world_changed": 0.481544,
+                "vision_fault": 0.481544,
+                "audio_fault": 0.22651
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.481544,
+                "vision_fault": 0.481544,
+                "audio_fault": 0.22651
+              },
+              "after": {
+                "world_changed": 0.497826,
+                "vision_fault": 0.497826,
+                "audio_fault": 0.197431
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "audio",
+              "value": 0,
+              "before": {
+                "world_changed": 0.497826,
+                "vision_fault": 0.497826,
+                "audio_fault": 0.197431
+              },
+              "after": {
+                "world_changed": 0.254841,
+                "vision_fault": 0.743334,
+                "audio_fault": 0.194533
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "touch",
+              "value": 0,
+              "before": {
+                "world_changed": 0.254841,
+                "vision_fault": 0.743334,
+                "audio_fault": 0.194533
+              },
+              "after": {
+                "world_changed": 0.102332,
+                "vision_fault": 0.894704,
+                "audio_fault": 0.094398
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "touch",
+              "value": 0,
+              "before": {
+                "world_changed": 0.102332,
+                "vision_fault": 0.894704,
+                "audio_fault": 0.094398
+              },
+              "after": {
+                "world_changed": 0.036608,
+                "vision_fault": 0.959938,
+                "audio_fault": 0.051245
+              }
+            }
+          ],
+          "counterfactuals": [
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "world_changed",
+              "p_one": 0.848993,
+              "information_gain_bits": 0.004344
+            },
+            {
+              "source": "imagined",
+              "probe": "audio",
+              "target": "world_changed",
+              "p_one": 0.501897,
+              "information_gain_bits": 0.176393
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "world_changed",
+              "p_one": 0.37742,
+              "information_gain_bits": 0.144922
+            },
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "world_changed",
+              "p_one": 0.301166,
+              "information_gain_bits": 0.071434
+            }
+          ],
+          "steps": [
+            {
+              "tick": 1,
+              "self_chosen_question": "world_changed",
+              "action": "vision",
+              "predicted_one": 0.848993,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 2,
+              "self_chosen_question": "world_changed",
+              "action": "audio",
+              "predicted_one": 0.501897,
+              "observed": 0,
+              "source": "observed"
+            },
+            {
+              "tick": 3,
+              "self_chosen_question": "world_changed",
+              "action": "touch",
+              "predicted_one": 0.37742,
+              "observed": 0,
+              "source": "observed"
+            },
+            {
+              "tick": 4,
+              "self_chosen_question": "world_changed",
+              "action": "touch",
+              "predicted_one": 0.301166,
+              "observed": 0,
+              "source": "observed"
+            }
+          ],
+          "probe_cost": 6.2
+        },
+        {
+          "seed": 10002,
+          "policy": "random",
+          "hidden_truth": {
+            "world_changed": 0,
+            "vision_fault": 1,
+            "audio_fault": 0
+          },
+          "posterior": {
+            "world_changed": 0.349812,
+            "vision_fault": 0.655542,
+            "audio_fault": 0.040938
+          },
+          "map": {
+            "world_changed": 0,
+            "vision_fault": 1,
+            "audio_fault": 0
+          },
+          "observations": [
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.39,
+                "vision_fault": 0.39,
+                "audio_fault": 0.39
+              },
+              "after": {
+                "world_changed": 0.481544,
+                "vision_fault": 0.481544,
+                "audio_fault": 0.22651
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "touch",
+              "value": 1,
+              "before": {
+                "world_changed": 0.481544,
+                "vision_fault": 0.481544,
+                "audio_fault": 0.22651
+              },
+              "after": {
+                "world_changed": 0.735897,
+                "vision_fault": 0.258974,
+                "audio_fault": 0.211111
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.735897,
+                "vision_fault": 0.258974,
+                "audio_fault": 0.211111
+              },
+              "after": {
+                "world_changed": 0.748366,
+                "vision_fault": 0.25104,
+                "audio_fault": 0.195583
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "calibrate_vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.748366,
+                "vision_fault": 0.25104,
+                "audio_fault": 0.195583
+              },
+              "after": {
+                "world_changed": 0.349735,
+                "vision_fault": 0.655099,
+                "audio_fault": 0.194774
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "calibrate_audio",
+              "value": 0,
+              "before": {
+                "world_changed": 0.349735,
+                "vision_fault": 0.655099,
+                "audio_fault": 0.194774
+              },
+              "after": {
+                "world_changed": 0.349812,
+                "vision_fault": 0.655542,
+                "audio_fault": 0.040938
+              }
+            }
+          ],
+          "counterfactuals": [
+            {
+              "source": "imagined",
+              "probe": "touch",
+              "target": "world_changed",
+              "p_one": 0.490772,
+              "information_gain_bits": 0.188476
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "world_changed",
+              "p_one": 0.863077,
+              "information_gain_bits": 0.003473
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_vision",
+              "target": "world_changed",
+              "p_one": 0.325728,
+              "information_gain_bits": 0.291411
+            },
+            {
+              "source": "imagined",
+              "probe": "calibrate_audio",
+              "target": "world_changed",
+              "p_one": 0.286342,
+              "information_gain_bits": 0.0
+            }
+          ],
+          "steps": [
+            {
+              "tick": 1,
+              "self_chosen_question": "world_changed",
+              "action": "touch",
+              "predicted_one": 0.490772,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 2,
+              "self_chosen_question": "world_changed",
+              "action": "vision",
+              "predicted_one": 0.863077,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 3,
+              "self_chosen_question": "world_changed",
+              "action": "calibrate_vision",
+              "predicted_one": 0.325728,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 4,
+              "self_chosen_question": "world_changed",
+              "action": "calibrate_audio",
+              "predicted_one": 0.286342,
+              "observed": 0,
+              "source": "observed"
+            }
+          ],
+          "probe_cost": 6.2
+        }
+      ]
+    },
+    "repeat": {
+      "metrics": {
+        "world_changed_accuracy": 0.72,
+        "vision_fault_accuracy": 0.54,
+        "audio_fault_accuracy": 0.73,
+        "mean_brier": 0.2035,
+        "joint_map_accuracy": 0.56,
+        "mean_probe_cost": 5.0
+      },
+      "examples": [
+        {
+          "seed": 10000,
+          "policy": "repeat",
+          "hidden_truth": {
+            "world_changed": 0,
+            "vision_fault": 1,
+            "audio_fault": 1
+          },
+          "posterior": {
+            "world_changed": 0.499757,
+            "vision_fault": 0.499757,
+            "audio_fault": 0.193983
+          },
+          "map": {
+            "world_changed": 0,
+            "vision_fault": 1,
+            "audio_fault": 0
+          },
+          "observations": [
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 0,
+              "before": {
+                "world_changed": 0.39,
+                "vision_fault": 0.39,
+                "audio_fault": 0.39
+              },
+              "after": {
+                "world_changed": 0.25495,
+                "vision_fault": 0.25495,
+                "audio_fault": 0.631188
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.25495,
+                "vision_fault": 0.25495,
+                "audio_fault": 0.631188
+              },
+              "after": {
+                "world_changed": 0.39,
+                "vision_fault": 0.39,
+                "audio_fault": 0.39
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.39,
+                "vision_fault": 0.39,
+                "audio_fault": 0.39
+              },
+              "after": {
+                "world_changed": 0.481544,
+                "vision_fault": 0.481544,
+                "audio_fault": 0.22651
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.481544,
+                "vision_fault": 0.481544,
+                "audio_fault": 0.22651
+              },
+              "after": {
+                "world_changed": 0.497826,
+                "vision_fault": 0.497826,
+                "audio_fault": 0.197431
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.497826,
+                "vision_fault": 0.497826,
+                "audio_fault": 0.197431
+              },
+              "after": {
+                "world_changed": 0.499757,
+                "vision_fault": 0.499757,
+                "audio_fault": 0.193983
+              }
+            }
+          ],
+          "counterfactuals": [
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "audio_fault",
+              "p_one": 0.222772,
+              "information_gain_bits": 0.050164
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "world_changed",
+              "p_one": 0.596,
+              "information_gain_bits": 0.038497
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "world_changed",
+              "p_one": 0.848993,
+              "information_gain_bits": 0.004344
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "world_changed",
+              "p_one": 0.893992,
+              "information_gain_bits": 9.1e-05
+            }
+          ],
+          "steps": [
+            {
+              "tick": 1,
+              "self_chosen_question": "audio_fault",
+              "action": "vision",
+              "predicted_one": 0.222772,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 2,
+              "self_chosen_question": "world_changed",
+              "action": "vision",
+              "predicted_one": 0.596,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 3,
+              "self_chosen_question": "world_changed",
+              "action": "vision",
+              "predicted_one": 0.848993,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 4,
+              "self_chosen_question": "world_changed",
+              "action": "vision",
+              "predicted_one": 0.893992,
+              "observed": 1,
+              "source": "observed"
+            }
+          ],
+          "probe_cost": 5.0
+        },
+        {
+          "seed": 10001,
+          "policy": "repeat",
+          "hidden_truth": {
+            "world_changed": 0,
+            "vision_fault": 1,
+            "audio_fault": 0
+          },
+          "posterior": {
+            "world_changed": 0.499997,
+            "vision_fault": 0.499997,
+            "audio_fault": 0.193554
+          },
+          "map": {
+            "world_changed": 0,
+            "vision_fault": 1,
+            "audio_fault": 0
+          },
+          "observations": [
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.39,
+                "vision_fault": 0.39,
+                "audio_fault": 0.39
+              },
+              "after": {
+                "world_changed": 0.481544,
+                "vision_fault": 0.481544,
+                "audio_fault": 0.22651
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.481544,
+                "vision_fault": 0.481544,
+                "audio_fault": 0.22651
+              },
+              "after": {
+                "world_changed": 0.497826,
+                "vision_fault": 0.497826,
+                "audio_fault": 0.197431
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.497826,
+                "vision_fault": 0.497826,
+                "audio_fault": 0.197431
+              },
+              "after": {
+                "world_changed": 0.499757,
+                "vision_fault": 0.499757,
+                "audio_fault": 0.193983
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.499757,
+                "vision_fault": 0.499757,
+                "audio_fault": 0.193983
+              },
+              "after": {
+                "world_changed": 0.499973,
+                "vision_fault": 0.499973,
+                "audio_fault": 0.193597
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.499973,
+                "vision_fault": 0.499973,
+                "audio_fault": 0.193597
+              },
+              "after": {
+                "world_changed": 0.499997,
+                "vision_fault": 0.499997,
+                "audio_fault": 0.193554
+              }
+            }
+          ],
+          "counterfactuals": [
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "world_changed",
+              "p_one": 0.848993,
+              "information_gain_bits": 0.004344
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "world_changed",
+              "p_one": 0.893992,
+              "information_gain_bits": 9.1e-05
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "world_changed",
+              "p_one": 0.899328,
+              "information_gain_bits": 1e-06
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "world_changed",
+              "p_one": 0.899925,
+              "information_gain_bits": 0.0
+            }
+          ],
+          "steps": [
+            {
+              "tick": 1,
+              "self_chosen_question": "world_changed",
+              "action": "vision",
+              "predicted_one": 0.848993,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 2,
+              "self_chosen_question": "world_changed",
+              "action": "vision",
+              "predicted_one": 0.893992,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 3,
+              "self_chosen_question": "world_changed",
+              "action": "vision",
+              "predicted_one": 0.899328,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 4,
+              "self_chosen_question": "world_changed",
+              "action": "vision",
+              "predicted_one": 0.899925,
+              "observed": 1,
+              "source": "observed"
+            }
+          ],
+          "probe_cost": 5.0
+        },
+        {
+          "seed": 10002,
+          "policy": "repeat",
+          "hidden_truth": {
+            "world_changed": 0,
+            "vision_fault": 1,
+            "audio_fault": 0
+          },
+          "posterior": {
+            "world_changed": 0.499997,
+            "vision_fault": 0.499997,
+            "audio_fault": 0.193554
+          },
+          "map": {
+            "world_changed": 0,
+            "vision_fault": 1,
+            "audio_fault": 0
+          },
+          "observations": [
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.39,
+                "vision_fault": 0.39,
+                "audio_fault": 0.39
+              },
+              "after": {
+                "world_changed": 0.481544,
+                "vision_fault": 0.481544,
+                "audio_fault": 0.22651
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.481544,
+                "vision_fault": 0.481544,
+                "audio_fault": 0.22651
+              },
+              "after": {
+                "world_changed": 0.497826,
+                "vision_fault": 0.497826,
+                "audio_fault": 0.197431
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.497826,
+                "vision_fault": 0.497826,
+                "audio_fault": 0.197431
+              },
+              "after": {
+                "world_changed": 0.499757,
+                "vision_fault": 0.499757,
+                "audio_fault": 0.193983
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.499757,
+                "vision_fault": 0.499757,
+                "audio_fault": 0.193983
+              },
+              "after": {
+                "world_changed": 0.499973,
+                "vision_fault": 0.499973,
+                "audio_fault": 0.193597
+              }
+            },
+            {
+              "source": "observed",
+              "probe": "vision",
+              "value": 1,
+              "before": {
+                "world_changed": 0.499973,
+                "vision_fault": 0.499973,
+                "audio_fault": 0.193597
+              },
+              "after": {
+                "world_changed": 0.499997,
+                "vision_fault": 0.499997,
+                "audio_fault": 0.193554
+              }
+            }
+          ],
+          "counterfactuals": [
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "world_changed",
+              "p_one": 0.848993,
+              "information_gain_bits": 0.004344
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "world_changed",
+              "p_one": 0.893992,
+              "information_gain_bits": 9.1e-05
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "world_changed",
+              "p_one": 0.899328,
+              "information_gain_bits": 1e-06
+            },
+            {
+              "source": "imagined",
+              "probe": "vision",
+              "target": "world_changed",
+              "p_one": 0.899925,
+              "information_gain_bits": 0.0
+            }
+          ],
+          "steps": [
+            {
+              "tick": 1,
+              "self_chosen_question": "world_changed",
+              "action": "vision",
+              "predicted_one": 0.848993,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 2,
+              "self_chosen_question": "world_changed",
+              "action": "vision",
+              "predicted_one": 0.893992,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 3,
+              "self_chosen_question": "world_changed",
+              "action": "vision",
+              "predicted_one": 0.899328,
+              "observed": 1,
+              "source": "observed"
+            },
+            {
+              "tick": 4,
+              "self_chosen_question": "world_changed",
+              "action": "vision",
+              "predicted_one": 0.899925,
+              "observed": 1,
+              "source": "observed"
+            }
+          ],
+          "probe_cost": 5.0
+        }
+      ]
+    }
+  }
+}
