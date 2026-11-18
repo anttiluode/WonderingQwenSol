@@ -31,6 +31,20 @@ class QwenPolicy:
     def __call__(self, mind, target: int) -> str:
         history = "\n".join(f'- {e["probe"]}: {e["value"]}'
                             for e in mind.events[-8:])
+        # The model receives the SAME joint posterior and sensor laws as the
+        # explicit information-gain policy, never the hidden sampled truth.
+        joint = "; ".join(
+            f"W={w},Vfault={v},Afault={a}: {mass:.3f}"
+            for (w, v, a), mass in sorted(mind.belief.p.items())
+        )
+        sensor_laws = (
+            "vision reads W XOR Vfault (90% accurate); "
+            "audio reads W XOR Afault (90% accurate); "
+            "calibrate_vision reads Vfault (85% accurate); "
+            "calibrate_audio reads Afault (85% accurate); "
+            "touch reads W (75% accurate). "
+            "A 1 means yes/changed/fault, 0 means no."
+        )
         marginals = ", ".join(f"{k}={v:.3f}"
                               for k, v in mind.belief.signature().items())
         probe_options = ", ".join(f"{p} (cost {c:.1f})"
@@ -45,7 +59,9 @@ class QwenPolicy:
         )
         prompt = (
             f"Current question: {NAMES[target]}\n"
-            f"Posterior probabilities: {marginals}\n"
+            f"Posterior marginals: {marginals}\n"
+            f"Joint posterior hypotheses: {joint}\n"
+            f"Measurement likelihoods: {sensor_laws}\n"
             f"Available measurements: {probe_options}\n"
             f"Observed readings (only real evidence):\n{history}\n"
             "Next measurement:"
