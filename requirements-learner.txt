@@ -1,0 +1,2 @@
+# CPU/CUDA learner 002A needs only PyTorch (no Transformers/model weights).
+torch>=2.1
