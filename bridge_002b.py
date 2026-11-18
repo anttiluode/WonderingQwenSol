@@ -22,7 +22,8 @@ import torch
 
 from learner002 import encode_observation
 from learner002b import PulledInquirer, learned_episode
-from worldloop import NAMES, ACTIONS
+from worldloop import NAMES
+from learner002 import ACTIONS
 
 BAND = (4, 12)
 DECOY_Q = "stone"
