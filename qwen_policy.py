@@ -67,8 +67,9 @@ class QwenPolicy:
         reply = tokenizer.decode(generated[0, tokens.shape[1]:],
                                  skip_special_tokens=True).strip()
         # Parse only the newly generated continuation, never the prompt.
-        match = re.match(r"^[\\s\x60\"']*(calibrate_vision|calibrate_audio|vision|audio|touch)\\b",
-                         reply.lower())
+        match = re.match(
+            r"^(calibrate_vision|calibrate_audio|vision|audio|touch)\b",
+            reply.lower().strip(" \x60\"'"))
         if match:
             action, valid = match.group(1), True
         else:
