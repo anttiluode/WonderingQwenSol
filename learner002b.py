@@ -63,7 +63,7 @@ class PulledInquirer(nn.Module):
         tension = torch.zeros(batch, 3, device=device)
         return h, tension
 
-    def step(self, x, h, tension, forced_question=None):
+    def step(self, x, h, tension, forced_question=None, disable_surprise=False):
         """At each step observe x, update learned state and local salience,
         then select a question and condition ONLY that slot into the action."""
         batch = x.shape[0]
@@ -86,7 +86,7 @@ class PulledInquirer(nn.Module):
         # The tension component *pulls* the question to the channel causing
         # the prediction mismatch. The uncertainty component prevents a loud
         # but already-solved channel from monopolising attention indefinitely.
-        gain = F.softplus(self.raw_surprise_gain)
+        gain = 0.0 if disable_surprise else F.softplus(self.raw_surprise_gain)
         question_logits = uncertainty * self.world_priority + gain * tension
         question = (question_logits.argmax(-1) if forced_question is None
                     else torch.as_tensor(forced_question, device=x.device,
@@ -204,7 +204,7 @@ def train(model, dataset, epochs=35, batch_size=128, lr=0.003, seed=42):
 
 @torch.no_grad()
 def learned_episode(model, seed, budget=4, challenge="a",
-                    reset_state=False, force_q=None):
+                    reset_state=False, force_q=None, disable_surprise=False):
     """Only the simulated environment knows hidden world. Qwen/Bayes NEVER
     execute here; the trained GRU chooses all post-baseline probes."""
     env = World.sample(seed) if challenge == "a" else ChangedWorld.sample(seed)
@@ -219,7 +219,8 @@ def learned_episode(model, seed, budget=4, challenge="a",
         events.append({"probe": action, "value": reading})
         x = torch.tensor([encode_observation(action, reading)], device=device)
         h, tension, logits, q_logits, a_logits, _, q, _ = model.step(
-            x, h, tension, forced_question=force_q)
+            x, h, tension, forced_question=force_q,
+            disable_surprise=disable_surprise)
         questions.append(int(q[0]))
         action = ACTIONS[int(a_logits[0].argmax())]
     pp = logits.softmax(-1)[0]
@@ -266,6 +267,9 @@ def benchmark(model, seeds, budget=4, challenge="a", with_references=True):
                    for s in seeds],
         "state_zeroed": [learned_episode(model, s, budget, challenge,
                                          reset_state=True)
+                         for s in seeds],
+        "surprise_off": [learned_episode(model, s, budget, challenge,
+                                         disable_surprise=True)
                          for s in seeds],
         "fixed_world_q": [learned_episode(model, s, budget, challenge, force_q=0)
                           for s in seeds],
