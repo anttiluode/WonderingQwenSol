@@ -300,6 +300,12 @@ def main():
         qwen = QwenPolicy(args.model, args.device)
     policies = ("active", "random", "repeat") if args.policy == "all" else (args.policy,)
     report = benchmark(args.seed, args.episodes, args.budget, qwen, policies)
+    if qwen is not None:
+        report["qwen_diagnostics"] = {
+            "model": args.model, "device": qwen.device,
+            "invalid_reply_fallbacks_to_vision": qwen.fallbacks,
+            "decisions": qwen.decisions,
+        }
     args.out.parent.mkdir(parents=True, exist_ok=True)
     tmp = args.out.with_suffix(args.out.suffix + ".tmp")
     tmp.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
