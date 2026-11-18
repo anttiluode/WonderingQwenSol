@@ -185,7 +185,9 @@ def run(args):
         lens.save(extended)
     # One fixed prompt across intervention conditions. No text posterior.
     ids = make_prompt(lm)
-    conditions = ("clean", "q", "belief", "both", "random_q")
+    conditions = (("clean", "q", "belief", "both", "random_q") if not args.full_controls
+                  else ("clean", "q", "belief", "both", "random_q",
+                        "flipped_belief", "late", "printed"))
     rows = []
     for j in range(args.cases):
         seed = args.start_seed + j
@@ -200,9 +202,20 @@ def run(args):
             qword = Q_WORDS[forced_q]
             p = marginals[forced_q]
             for mode in conditions:
-                swap = DoubleSwap(lm, lens, qword, p, hs, replace, tap,
+                # Each control changes a single intended dimension.
+                # Printed is a positive text baseline; late is an
+                # off-workspace intervention; flipped belief tests whether
+                # confidence influences Qwen beyond the question word.
+                p_used = (1.0 - p if mode == "flipped_belief" else p)
+                swapped_band = (20, 24) if mode == "late" else BAND
+                swap = DoubleSwap(lm, lens, qword, p_used, hs, replace, tap,
+                                  band=swapped_band,
                                   random_q=(mode == "random_q"))
-                scores = {a: score_option(lm, swap, ids, a, mode)
+                trial_ids = (make_prompt(lm, qword, "yes" if p >= .5 else "no")
+                             if mode == "printed" else ids)
+                swap_mode = ("clean" if mode == "printed" else "both"
+                             if mode in ("late", "flipped_belief") else mode)
+                scores = {a: score_option(lm, swap, trial_ids, a, swap_mode)
                           for a in ACTIONS}
                 winner = max(scores, key=scores.get)
                 rows.append({
@@ -228,7 +241,7 @@ def run(args):
         "status": "EXPLORATORY frozen-Qwen concept swap, not trained latent bridge",
         "model": model_name, "checkpoint": str(args.checkpoint),
         "challenge": challenge, "conditions": conditions, "band": BAND,
-        "controls": "clean / q only / learned belief only / both / matched random q",
+        "controls": list(conditions),
         "limits": [
             "Qwen receives q as a known concept direction, not a learned GRU-to-J projection.",
             "GRU marginal is blended into yes/no J-space directions by an engineered interface.",
@@ -260,6 +273,7 @@ def main():
     p.add_argument("--budget", type=int, default=4)
     p.add_argument("--out", type=Path, default=Path("results/qwen_bridge002b.json"))
     p.add_argument("--verbose", action="store_true")
+    p.add_argument("--full-controls", action="store_true", help="also evaluate printed, flipped-belief and late-band controls")
     p.add_argument("--overwrite", action="store_true")
     args = p.parse_args()
     if args.cases < 1 or args.budget < 1:
