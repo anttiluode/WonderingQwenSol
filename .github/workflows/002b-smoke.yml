@@ -1,0 +1,29 @@
+name: 002B learned-controller smoke
+on:
+  push:
+    paths:
+      - "learner002b.py"
+      - "learner002.py"
+      - "worldloop.py"
+      - "challenge_b.py"
+      - "tests/test_learner002b.py"
+      - ".github/workflows/002b-smoke.yml"
+  workflow_dispatch:
+
+jobs:
+  torch-002b:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install CPU-only PyTorch
+        run: python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+      - name: Run learned-state and causal tests
+        run: python -m unittest discover -s tests -v
+      - name: Challenge A tiny GRU fit (plumbing only)
+        run: python learner002b.py --challenge a --quick --out /tmp/002b-a-smoke.json
+      - name: Challenge B tiny GRU fit (plumbing only)
+        run: python learner002b.py --challenge b --quick --out /tmp/002b-b-smoke.json
